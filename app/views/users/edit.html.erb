@@ -1,0 +1,21 @@
+<body>
+	<div class="container">
+		<p class="notice"><%= notice %></p>
+		<p class="alert"><%= alert %></p>
+	<h2>User info</h2>
+	<%= form_for(@user) do |f| %>
+	<div class="name">
+		<%= f.text_field :name, autofocus: true %>
+	</div>
+
+	<div class="user-edit-image">
+		<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg" %>
+		<%= f.attachment_field :profile_image %>
+	</div>
+
+	<div class="introduction">
+		<%= f.text_area :introduction, autofocus: true %>
+	</div>
+	<%= f.submit "Update User" %>
+	<% end %>
+</body>
